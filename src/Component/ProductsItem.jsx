@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const ProductsItem = (props) => {
-  const { item } = props
+  const { item, handleCarts } = props
   return (
     <div className="col-md-3 mt-3">
       <div className="card">
@@ -20,14 +20,21 @@ export const ProductsItem = (props) => {
             }).format(item.price)}
           </p>
           <div className="d-flex justify-content-between">
-            <button type="button" className="btn btn-outline-success">
+            <button
+              type="button"
+              className="btn btn-outline-success"
+              onClick={() => handleCarts(item)}
+            >
               Add to cart
             </button>
             <button
               type="button"
               className="btn btn-outline-dark"
               data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
+              data-bs-target="#ProductDetailModal"
+              onClick={() => {
+                handleProductDetail(products)
+              }}
             >
               Detail
             </button>
